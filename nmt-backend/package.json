@@ -1,0 +1,28 @@
+{
+  "name": "pavemind-express",
+  "version": "1.0.0",
+  "description": "PaveMind Backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js",
+    "debug": "nodemon --inspect app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^4.8.1",
+    "bcrypt": "^5.1.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "helmet": "^6.0.0",
+    "http-errors": "^2.0.0",
+    "jsonwebtoken": "^9.0.0",
+    "multer": "^1.4.5-lts.1",
+    "validator": "^13.7.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "prisma": "^4.8.1"
+  }
+}
