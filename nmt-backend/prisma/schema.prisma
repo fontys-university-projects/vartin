@@ -23,26 +23,32 @@ model User {
   library   Library[]
 }
 
-
-
 // create game endpoint
 model Game {
-  id   String @id @default(auto()) @map("_id") @db.ObjectId
-  name String
+  id        String      @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  GameStats GameStats[]
+}
 
-  library Library[]
+// create game endpoint
+model GameStats {
+  id        String  @id @default(auto()) @map("_id") @db.ObjectId
+  game      Game    @relation(references: [id], fields: [gid], onDelete: Cascade)
+  gid       String  @db.ObjectId
+  Library   Library @relation(fields: [libraryId], references: [id])
+  libraryId String  @db.ObjectId
+  score     Int?
+  level     Int?
 }
 
 // Create user library, register game, modify game's score endpoint
 model Library {
-  id    String @id @default(auto()) @map("_id") @db.ObjectId
-  score Int?
-  level Int?
-
-  game   Game   @relation(references: [id], fields: [gid], onDelete: Cascade)
-  gid    String @db.ObjectId
-  author User   @relation(references: [id], fields: [userId], onDelete: Cascade)
-  userId String @db.ObjectId
+  id     String      @id @default(auto()) @map("_id") @db.ObjectId
+  author User        @relation(references: [id], fields: [userId], onDelete: Cascade)
+  userId String      @db.ObjectId
+  games  GameStats[]
+  // GameStats   GameStats?  @relation(fields: [gameStatsId], references: [id])
+  // gameStatsId String?     @db.ObjectId
 }
 
 enum UserRole {
