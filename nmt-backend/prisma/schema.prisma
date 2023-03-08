@@ -11,27 +11,39 @@ datasource db {
 }
 
 model User {
-  id            String    @id @default(auto()) @map("_id") @db.ObjectId
-  uid           String    @unique
-  createdAt     DateTime  @default(now())
-  email         String    @unique
-  emailVerified Boolean   @default(false)
-  password      String
-  role          UserRole  @default(User)
-  avatar        String?
-  firstName     String?
-  lastName      String?
-  about         String?
-  dob           DateTime?
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  uid       String    @unique
+  createdAt DateTime  @default(now())
+  email     String    @unique
+  password  String
+  role      UserRole  @default(User)
+  avatar    String?
+  firstName String?
+  dob       DateTime?
+  library   Library[]
 }
 
-model Key {
-  id       String @id @default(auto()) @map("_id") @db.ObjectId
-  kid      String @unique
-  uni      String
-  uniEmail String @unique
+
+
+// create game endpoint
+model Game {
+  id   String @id @default(auto()) @map("_id") @db.ObjectId
+  name String
+
+  library Library[]
 }
 
+// Create user library, register game, modify game's score endpoint
+model Library {
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  score Int?
+  level Int?
+
+  game   Game   @relation(references: [id], fields: [gid], onDelete: Cascade)
+  gid    String @db.ObjectId
+  author User   @relation(references: [id], fields: [userId], onDelete: Cascade)
+  userId String @db.ObjectId
+}
 
 enum UserRole {
   Author
