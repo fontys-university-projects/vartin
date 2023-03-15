@@ -3,6 +3,9 @@ import HomeView from '../views/HomeView.vue'
 import GamesView from '../views/GamesView.vue'
 import GameView from '../views/GameView.vue'
 
+import MathGame from '../views/games/MathGame.vue'
+import SimonSays from '../views/games/SimonSays.vue'
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -21,6 +24,16 @@ const router = createRouter({
       name: 'game',
       component: GameView
     },
+    {
+      path: '/g/math',
+      name: 'math-game',
+      component: MathGame
+    },
+    {
+      path: '/g/simon-says',
+      name: 'simon-says',
+      component: SimonSays
+    }
     // {
     //   path: '/about',
     //   name: 'about',

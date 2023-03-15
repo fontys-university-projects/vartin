@@ -11,7 +11,7 @@
                                          class="grid grid-cols-6 gap-4 font-mono text-white text-sm text-center font-bold leading-6">
                                         <div
                                              class="p-4 rounded-lg col-span-full sm:col-start-2 sm:col-span-4 row-span-2 shadow-none">
-                                            <p class="text-4xl font-bold tracking-tight sm:text-5xl mb-7">21 + 20 = 41</p>
+                                            <p class="text-4xl font-bold tracking-tight sm:text-5xl mb-7">21 + ▢ = 41</p>
                                         </div>
 
                                         <div
@@ -35,10 +35,16 @@
                     <div class="grid grid-cols-1 gap-4">
                         <section aria-labelledby="section-2-title">
                             <div class="overflow-hidden rounded-lg bg-slate-800/50 shadow">
-                                <div class="p-6">
-                                    <h1 class="text-center ">Game Stats</h1>
-                                    <p>Score: 123</p>
-                                    <p>Level: 123</p>
+                                <div class="p-6 text-center">
+                                    <h1 class="text-center text-4xl text-white pb-6">Game Stats</h1>
+                                    <div class="pb-4">
+                                        <p class="text-2xl text-white">Score</p>
+                                        <p class="text-xl text-white">123</p>
+                                    </div>
+                                    <div class="pb-4">
+                                        <p class="text-2xl text-white">Level</p>
+                                        <p class="text-xl text-white">123</p>
+                                    </div>
                                 </div>
                             </div>
                         </section>
@@ -67,7 +73,8 @@
                                             <svg aria-hidden="true"
                                                  class="w-10 h-10"></svg>
                                         </button>
-                                        <button class="p-4 rounded-lg shadow-lg bg-fuchsia-500 col-start-4 place-self-start">
+                                        <button
+                                                class="p-4 rounded-lg shadow-lg bg-fuchsia-500 col-start-4 place-self-start">
                                             <svg aria-hidden="true"
                                                  class="w-10 h-10"></svg>
                                         </button>
@@ -84,10 +91,16 @@
                     <div class="grid grid-cols-1 gap-4">
                         <section aria-labelledby="section-2-title">
                             <div class="overflow-hidden rounded-lg bg-slate-800/50 shadow">
-                                <div class="p-6">
-                                    <h1 class="text-center ">Game Stats</h1>
-                                    <p>Score: 123</p>
-                                    <p>Level: 123</p>
+                                <div class="p-6 text-center">
+                                    <h1 class="text-center text-4xl text-white pb-6">Game Stats</h1>
+                                    <div class="pb-4">
+                                        <p class="text-2xl text-white">Score</p>
+                                        <p class="text-xl text-white">123</p>
+                                    </div>
+                                    <div class="pb-4">
+                                        <p class="text-2xl text-white">Level</p>
+                                        <p class="text-xl text-white">123</p>
+                                    </div>
                                 </div>
                             </div>
                         </section>
