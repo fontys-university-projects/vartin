@@ -13,14 +13,14 @@
         android:theme="@style/Theme.MySeries"
         tools:targetApi="31">
         <activity
-            android:name=".MovieActivity"
+            android:name=".Movie"
             android:exported="false"
-            android:label="@string/title_activity_movie"
+            android:label="@string/title_activity_series"
             android:theme="@style/Theme.MySeries" />
         <activity
-            android:name=".MyMoviesActivity"
+            android:name=".MySeries"
             android:exported="false"
-            android:label="@string/title_activity_my_movies"
+            android:label="@string/title_activity_my_series"
             android:theme="@style/Theme.MySeries" />
         <activity
             android:name=".MainActivity"
