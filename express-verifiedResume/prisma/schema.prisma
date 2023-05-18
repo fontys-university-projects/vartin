@@ -1,0 +1,269 @@
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+generator docs {
+  provider = "node node_modules/prisma-docs-generator"
+}
+
+model User {
+  id             String           @id @default(auto()) @map("_id") @db.ObjectId
+  uid            String           @unique
+  email          String           @unique
+  name           String?
+  password       String
+  cv             CV?
+  savedCVs       SavedCV[]
+  savedCompanies savedCompanies[]
+  educations     Education[]
+  experiences    Experience[]
+  skills         Skill[]
+  company        Company[]
+  employee       Employees[]
+}
+
+model CV {
+  id          String       @id @default(auto()) @map("_id") @db.ObjectId
+  firstName   String
+  lastName    String
+  about       String?
+  email       Json
+  phone       Json?
+  website     Json?
+  address     String?
+  langauges   Language[]
+  educations  Education[]
+  experiences Experience[]
+  skills      Skill[]
+  user        User         @relation(fields: [userId], references: [id])
+  userId      String       @unique @db.ObjectId
+}
+
+model Company {
+  id           String       @id @default(auto()) @map("_id") @db.ObjectId
+  name         String
+  description  String?
+  industry     String?
+  companySize  String?
+  headquarters String?
+  logo         String?
+  website      String?
+  email        String?
+  phone        String?
+  address      String?
+  jobs         Job[]
+  employees    Employees[]
+  owner        User         @relation(fields: [ownerId], references: [id])
+  ownerId      String       @db.ObjectId
+  Education    Education[]
+  Experience   Experience[]
+}
+
+model Employees {
+  id             String           @id @default(auto()) @map("_id") @db.ObjectId
+  firstName      String
+  lastName       String
+  email          String
+  phone          String
+  position       String
+  type           EmployeeType
+  admin          Boolean          @default(false)
+  savedCVs       SavedCV[]
+  savedCompanies savedCompanies[]
+  user           User?            @relation(fields: [userId], references: [id])
+  userId         String?          @unique @db.ObjectId
+  company        Company          @relation(fields: [companyId], references: [id])
+  companyId      String           @db.ObjectId
+}
+
+model Job {
+  id          String         @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  description String?
+  salary      String?
+  location    String?
+  company     Company        @relation(fields: [companyId], references: [id])
+  companyId   String         @db.ObjectId
+  skills      String[]
+  langauges   LanguageName[]
+  educations  String[]
+  experiences String[]
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+}
+
+model SavedCV {
+  id         String     @id @default(auto()) @map("_id") @db.ObjectId
+  cvId       String
+  user       User?      @relation(fields: [userId], references: [id])
+  userId     String?    @db.ObjectId
+  employee   Employees? @relation(fields: [employeeId], references: [id])
+  employeeId String?    @db.ObjectId
+  createdAt  DateTime   @default(now())
+
+  @@unique([cvId, userId])
+  @@unique([cvId, employeeId])
+}
+
+model savedCompanies {
+  id         String     @id @default(auto()) @map("_id") @db.ObjectId
+  companyId  String
+  user       User?      @relation(fields: [userId], references: [id])
+  userId     String?    @db.ObjectId
+  employee   Employees? @relation(fields: [employeeId], references: [id])
+  employeeId String?    @db.ObjectId
+  createdAt  DateTime   @default(now())
+
+  @@unique([companyId, userId])
+  @@unique([companyId, employeeId])
+}
+
+model Language {
+  id                String         @id @default(auto()) @map("_id") @db.ObjectId
+  name              LanguageName
+  native            Boolean?       @default(false)
+  listening         LanguageLevel?
+  reading           LanguageLevel?
+  writing           LanguageLevel?
+  spokenProduction  LanguageLevel?
+  spokenInteraction LanguageLevel?
+  cv                CV             @relation(fields: [cvId], references: [id])
+  cvId              String         @db.ObjectId
+}
+
+model Education {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  institution String
+  degree      String
+  startDate   String
+  endDate     String
+  cv          CV?      @relation(fields: [cvId], references: [id])
+  cvId        String?  @db.ObjectId
+  company     Company? @relation(fields: [companyId], references: [id])
+  companyId   String?  @db.ObjectId
+  user        User     @relation(fields: [userId], references: [id])
+  userId      String   @db.ObjectId
+}
+
+model Experience {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  companyName String
+  position    String
+  startDate   String
+  endDate     String
+  cv          CV?      @relation(fields: [cvId], references: [id])
+  cvId        String?  @db.ObjectId
+  company     Company? @relation(fields: [companyId], references: [id])
+  companyId   String?  @db.ObjectId
+  user        User     @relation(fields: [userId], references: [id])
+  userId      String   @db.ObjectId
+}
+
+model Skill {
+  id       String  @id @default(auto()) @map("_id") @db.ObjectId
+  name     String
+  category String?
+  cv       CV?     @relation(fields: [cvId], references: [id])
+  cvId     String? @db.ObjectId
+  user     User    @relation(fields: [userId], references: [id])
+  userId   String  @db.ObjectId
+}
+
+enum EmployeeType {
+  Recruiter
+  FullTime
+  PartTime
+  Contract
+  Temporary
+  Internship
+  Old
+}
+
+enum LanguageLevel {
+  A1
+  A2
+  B1
+  B2
+  C1
+  C2
+}
+
+enum LanguageName {
+  Afrikanns
+  Albanian
+  Arabic
+  Armenian
+  Basque
+  Bengali
+  Bulgarian
+  Catalan
+  Cambodian
+  Chinese
+  Croation
+  Czech
+  Danish
+  Dutch
+  English
+  Estonian
+  Fiji
+  Finnish
+  French
+  Georgian
+  German
+  Greek
+  Gujarati
+  Hebrew
+  Hindi
+  Hungarian
+  Icelandic
+  Indonesian
+  Irish
+  Italian
+  Japanese
+  Javanese
+  Korean
+  Latin
+  Latvian
+  Lithuanian
+  Macedonian
+  Malay
+  Malayalam
+  Maltese
+  Maori
+  Marathi
+  Mongolian
+  Nepali
+  Norwegian
+  Persian
+  Polish
+  Portuguese
+  Punjabi
+  Quechua
+  Romanian
+  Russian
+  Samoan
+  Serbian
+  Slovak
+  Slovenian
+  Spanish
+  Swahili
+  Swedish
+  Tamil
+  Tatar
+  Telugu
+  Thai
+  Tibetan
+  Tonga
+  Turkish
+  Ukranian
+  Urdu
+  Uzbek
+  Vietnamese
+  Welsh
+  Xhosa
+}
