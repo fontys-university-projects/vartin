@@ -33,7 +33,7 @@ const options = {
     },
     servers: [
       {
-        url: "http://127.0.0.1:5000",
+        url: "http://127.0.0.1:5555",
       },
     ],
   },
@@ -58,7 +58,7 @@ if (!databaseUrl) {
   console.log('For more information, check out /doc/INITIALIZATION.md ')
 }
 
-const port = process.env.PORT || 5000
+const port = process.env.PORT || 5555
 let server;
 (async () => {
   server = app.listen(port, () => {
