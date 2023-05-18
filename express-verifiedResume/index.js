@@ -10,8 +10,8 @@ const swaggerUi = require("swagger-ui-express")
 
 
 var corsOptions = {
-    origin: [process.env.ORIGIN]
-  }
+  origin: [process.env.ORIGIN]
+}
 
 app.use(cors(corsOptions))
 app.use(bodyParser.json())
@@ -33,7 +33,7 @@ const options = {
     },
     servers: [
       {
-        url: "http://localhost:5000",
+        url: "http://127.0.0.1:5000",
       },
     ],
   },
@@ -51,10 +51,10 @@ const route = require('./routes')
 app.use('/', route)
 
 app.disable('x-powered-by')
-const databaseUrl = process.env.DATABASE_URL
+const databaseUrl = "mongodb+srv://admin:admin@cluster0.nnefyrc.mongodb.net/?retryWrites=true&w=majority"
 if (!databaseUrl) {
   console.log('You are missing "DATABASE_URL" inside the .env file \n')
-  console.log('Example: DATABASE_URL="mongodb+srv://user:pass@domain:27017/database" \n')
+  console.log('Example: DATABASE_URL="mongodb+srv://admin:admin@cluster0.nnefyrc.mongodb.net/?retryWrites=true&w=majority" \n')
   console.log('For more information, check out /doc/INITIALIZATION.md ')
 }
 
