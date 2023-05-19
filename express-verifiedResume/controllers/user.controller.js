@@ -15,7 +15,7 @@ class userController {
             })
         }
         catch (e) {
-            next(createError(e.statusCode, e.message))
+            // next(createError(e.statusCode, e.message))
             console.log(e)
         }
     }
@@ -45,7 +45,7 @@ class userController {
                     data
                 })
             } catch (e) {
-                next(createError(e.statusCode, e.message))
+                // next(createError(e.statusCode, e.message))
                 console.log(e)
             }
     }

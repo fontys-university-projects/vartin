@@ -12,6 +12,7 @@ struct VerifiedResumeApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+            
         }
     }
 }
