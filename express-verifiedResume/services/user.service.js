@@ -58,7 +58,7 @@ class authService {
             }
         })
 
-        if (user) {
+        if (!user) {
             throw createError.NotFound('User not found')
         }
 
@@ -74,6 +74,32 @@ class authService {
         return { accessToken }
     }
 
+    static async getProfile(data) {
+        const { uid } = data
+        const user = await prisma.user.findUnique({
+            where: {
+                uid
+            },
+            select: {
+                uid: true,
+                email: true,
+                name: true,
+                password: true,
+                avatar: true,
+                cv: true,
+                savedCVs: true,
+                savedCompanies: true,
+                educations: true,
+                experiences: true,
+                skills: true,
+                company: true,
+                employee: true,
+
+            }
+        })
+        if (!user) throw createError.NotFound('User not found')
+        return user
+    }
     static async createCv(data) { 
         const { uid, firstName, lastName, about, email, phone, website, address } = data
         const user = await prisma.user.findUnique({
@@ -133,6 +159,7 @@ class authService {
 
         return cv
     }
+
 
     static async createEducation(data) {
         const { uid, institution, degree, startDate, endDate } = data
