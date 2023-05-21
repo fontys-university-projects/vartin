@@ -41,6 +41,7 @@ model CV {
   educations  Education[]
   experiences Experience[]
   skills      Skill[]
+  saves       SavedCV[]
   user        User         @relation(fields: [userId], references: [id])
   userId      String       @unique @db.ObjectId
 }
@@ -63,6 +64,7 @@ model Company {
   ownerId      String       @db.ObjectId
   Education    Education[]
   Experience   Experience[]
+  saves savedCompanies[]
 }
 
 model Employees {
@@ -100,7 +102,8 @@ model Job {
 
 model SavedCV {
   id         String     @id @default(auto()) @map("_id") @db.ObjectId
-  cvId       String
+  cv         CV?        @relation(fields: [cvId], references: [id])
+  cvId       String?   @db.ObjectId
   user       User?      @relation(fields: [userId], references: [id])
   userId     String?    @db.ObjectId
   employee   Employees? @relation(fields: [employeeId], references: [id])
@@ -113,7 +116,8 @@ model SavedCV {
 
 model savedCompanies {
   id         String     @id @default(auto()) @map("_id") @db.ObjectId
-  companyId  String
+  company    Company   @relation(fields: [companyId], references: [id])
+  companyId  String   @db.ObjectId
   user       User?      @relation(fields: [userId], references: [id])
   userId     String?    @db.ObjectId
   employee   Employees? @relation(fields: [employeeId], references: [id])

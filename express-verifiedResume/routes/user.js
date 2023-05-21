@@ -40,7 +40,7 @@ router.post('/removeLanguage', auth, user.removeLanguage)
 
 router.post('/save', auth, user.save)
 
-router.post('/unsaved', auth, user.unsaved)
+router.post('/remove', auth, user.remove)
 
 router.get('/saved', auth, user.saved)
 
