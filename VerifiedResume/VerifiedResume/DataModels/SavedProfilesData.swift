@@ -9,6 +9,6 @@ import Foundation
 
 
 struct SavedProfile: Hashable, Codable {
-    let savedCV: [CV]
-    let savedCompany: [Company]
+    let savedCVs: [CV]
+    let savedCompanies: [Company]
 }

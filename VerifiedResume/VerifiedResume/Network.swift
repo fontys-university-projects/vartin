@@ -129,8 +129,8 @@ class Network: ObservableObject {
                     do {
                         let decodedProfilesResponse = try JSONDecoder().decode(APIResponse<SavedProfile>.self, from: data)
                         print(decodedProfilesResponse)
-                        self.savedCVs = decodedProfilesResponse.data.savedCV
-                        self.savedCompanies = decodedProfilesResponse.data.savedCompany
+                        self.savedCVs = decodedProfilesResponse.data.savedCVs
+                        self.savedCompanies = decodedProfilesResponse.data.savedCompanies
                     } catch let error {
                         print("Error decoding: ", error)
                     }

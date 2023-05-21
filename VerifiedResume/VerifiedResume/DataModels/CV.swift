@@ -11,7 +11,7 @@ struct CV: Identifiable, Hashable, Codable {
     var id: String
     var firstName: String
     var lastName: String
-    var about: String
+    var about: String?
     var email: String?
     var phone: String?
     var website: String?

@@ -57,7 +57,8 @@ struct ResumePreview: View {
                 
                 VStack(){
                     Section(text: "About me"){
-                        Text(userInfo.cv.about)
+                        Text(userInfo.cv.about ?? ""
+                        )
                             .font(/*@START_MENU_TOKEN@*/.body/*@END_MENU_TOKEN@*/)
                             .fontWeight(.light)
                             .foregroundColor(Color.gray)

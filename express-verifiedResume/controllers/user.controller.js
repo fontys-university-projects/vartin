@@ -376,11 +376,7 @@ class userController {
             const body = req.body
             const usr = req.user
             const merge = {...body, ...usr}
-<<<<<<< HEAD
             const data = await user.remove(merge)
-=======
-            const data = await user.unsaved(merge)
->>>>>>> 027bbc31caea4c76ef4506944b2c146c2db43e37
             res.status(200).json({
                 status: true,
                 message: "CV and/or Company was removed successfully",
@@ -405,7 +401,7 @@ class userController {
                 data
             })
         } catch (e) {
-            next(createError(e.statusCode, e.message))
+            // next(createError(e.statusCode, e.message))
             console.log(e)
         }
     }
