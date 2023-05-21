@@ -564,10 +564,7 @@ class authService {
 
         if (!savedCV && !savedCompany) throw createError.Unauthorized('User does not have any saved CVs or companies')
 
-        const saved = {
-            savedCVs: savedCV,
-            savedCompanies: savedCompany
-        }
+        const saved = { ...savedCV, ...savedCompany }
 
         return saved
     }
