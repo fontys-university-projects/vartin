@@ -9,17 +9,22 @@ import SwiftUI
 
 struct InfoCard: View {
     
+    let first: String
+    let second: String
+    let third: String
+    let forth: String
+    
     var body: some View {
         ZStack(){
             VStack(alignment: .leading){
                 HStack(){
-                    Text("ICT & Meadia")
+                    Text(first)
                         .font(.body)
                         .foregroundColor(Color.black)
                         .multilineTextAlignment(.leading)
                         .lineLimit(/*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
                     
-                    Text("[31/08/20 - present]")
+                    Text(third)
                         .font(.body)
                         .fontWeight(.light)
                         .foregroundColor(Color.gray)
@@ -28,14 +33,14 @@ struct InfoCard: View {
                     
                 }
                 HStack(){
-                    Text("Fontys Hogescholen")
+                    Text(second)
                         .font(.body)
                         .foregroundColor(Color.black)
                         .multilineTextAlignment(.leading)
                         .lineLimit(/*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
                     Image(systemName: "globe")
                         .foregroundColor(Color.blue)
-                    Text("website")
+                    Text(forth)
                         .font(.body)
                         .foregroundColor(Color.blue)
                         .underline()
@@ -53,6 +58,6 @@ struct InfoCard: View {
 
 struct InfoCard_Previews: PreviewProvider {
     static var previews: some View {
-        InfoCard()
+        InfoCard(first: "ICT & Media", second: "", third: "", forth: "")
     }
 }

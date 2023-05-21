@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct ResumeGrid: View {
-    let items = (1...4)
+   
+    
+    private let items = (1...4)
     
     private let adaptveColumns = [
         GridItem(.adaptive(minimum: 150.0))
