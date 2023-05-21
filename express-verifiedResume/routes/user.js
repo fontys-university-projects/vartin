@@ -12,6 +12,8 @@ router.post('/createCV', auth, user.createCV)
 
 router.post('/editCV', auth, user.editCV)
 
+router.get('/getCV', auth, user.getCV)
+
 router.post('/createEducation', auth, user.createEducation)
 
 router.post('/editEducation', auth, user.editEducation)

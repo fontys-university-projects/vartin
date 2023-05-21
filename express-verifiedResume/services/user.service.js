@@ -160,6 +160,35 @@ class authService {
         return cv
     }
 
+    static async getCv(data) { 
+        const { uid } = data
+        const user = await prisma.user.findUnique({
+            where: {
+                uid
+            }
+        })
+        if (!user.cv) throw createError.Unauthorized('User does not have a CV')
+        const cv = await prisma.cv.findUnique({
+            where: {
+                id: user.cv.id
+            },
+            select: {
+                id: true,
+                firstName: true,
+                lastName: true,
+                about: true,
+                email: true,
+                phone: true,
+                website: true,
+                address: true,
+                educations: true,
+                experiences: true,
+                skills: true
+            }
+        })
+        return cv
+    }
+
 
     static async createEducation(data) {
         const { uid, institution, degree, startDate, endDate } = data
@@ -430,9 +459,111 @@ class authService {
             }
         })
 
+        if (cv) {
+            const saveCV = await prisma.savedCV.create({
+                data: {
+                    user: {
+                        connect: {
+                            uid: uid
+                        }
+                    }
+                },
+                where: {
+                    cv: {
+                        connect: {
+                            id: cvID
+                        }
+                    }
+                }
+            })
+            return saveCV
+        }
+        if (company) {
+            const saveCompany = await prisma.savedCompany.create({
+                data: {
+                    user: {
+                        connect: {
+                            uid: uid
+                        }
+                    }
+                },
+                where: {
+                    company: {
+                        connect: {
+                            id: companyID
+                        }
+                    }
+                }
+            })
+            return saveCompany
+        }
+
     }
         
+    static async unsaved (data) {
+        const { uid, cvID, companyID } = data
 
+        const user = await prisma.user.findUnique({
+            where: {
+                uid
+            }
+        })
+
+        const cv = await prisma.cv.findUnique({
+            where: {
+                id: cvID
+            }
+        })
+
+        const company = await prisma.company.findUnique({
+            where: {
+                id: companyID
+            }
+         })
+
+        if(!cv) throw createError.Unauthorized('This CV ID does not exist')
+
+        if(!company) throw createError.Unauthorized('This company ID does not exist')
+
+        if(cv) {
+            const unsavedCV = await prisma.savedCV.delete({
+                where: {
+                    id: cvID
+                }
+            })
+            return unsavedCV
+        }
+    }
+    
+    static async saved(data) {
+        const { uid } = data
+
+
+        const savedCV = await prisma.savedCV.findMany({
+            where: {
+                user: {
+                    uid: uid
+                }
+            }
+        })
+
+        const savedCompany = await prisma.savedCompany.findMany({
+            where: {
+                user: {
+                    uid: uid
+                }
+            }
+        })
+
+        if (!savedCV && !savedCompany) throw createError.Unauthorized('User does not have any saved CVs or companies')
+
+        const saved = {
+            savedCV: savedCV,
+            savedCompany: savedCompany
+        }
+
+        return saved
+    }
 
     static async passwordChange(data) {
         const { uid, oldPassword, newPassword, confirmPassword } = data
