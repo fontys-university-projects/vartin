@@ -51,7 +51,7 @@ const route = require('./routes')
 app.use('/', route)
 
 app.disable('x-powered-by')
-const databaseUrl = "mongodb+srv://admin:admin@cluster0.nnefyrc.mongodb.net/?retryWrites=true&w=majority"
+const databaseUrl = "mongodb+srv://admin:admin@cluster0.nnefyrc.mongodb.net/VerifiedResume?retryWrites=true&w=majority"
 if (!databaseUrl) {
   console.log('You are missing "DATABASE_URL" inside the .env file \n')
   console.log('Example: DATABASE_URL="mongodb+srv://admin:admin@cluster0.nnefyrc.mongodb.net/?retryWrites=true&w=majority" \n')
