@@ -24,6 +24,8 @@
 		A7B0B11D2A19EE29004321E7 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B0B11C2A19EE29004321E7 /* Company.swift */; };
 		A7B0B11F2A19EE54004321E7 /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B0B11E2A19EE54004321E7 /* Employee.swift */; };
 		A7B0B1212A19EE7D004321E7 /* EmployeeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B0B1202A19EE7D004321E7 /* EmployeeType.swift */; };
+		A7B0B1242A1A416C004321E7 /* SkillCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B0B1232A1A416C004321E7 /* SkillCategory.swift */; };
+		A7B0B1262A1A9242004321E7 /* SavedProfilesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B0B1252A1A9242004321E7 /* SavedProfilesData.swift */; };
 		A7B5E7762A14FD9C0062F7AA /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B5E7752A14FD9B0062F7AA /* MapView.swift */; };
 		A7B5E7782A150AF10062F7AA /* InfoCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B5E7772A150AF10062F7AA /* InfoCard.swift */; };
 		A7B5E77A2A17EE900062F7AA /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B5E7792A17EE8F0062F7AA /* Network.swift */; };
@@ -74,6 +76,8 @@
 		A7B0B11C2A19EE29004321E7 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		A7B0B11E2A19EE54004321E7 /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
 		A7B0B1202A19EE7D004321E7 /* EmployeeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeType.swift; sourceTree = "<group>"; };
+		A7B0B1232A1A416C004321E7 /* SkillCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillCategory.swift; sourceTree = "<group>"; };
+		A7B0B1252A1A9242004321E7 /* SavedProfilesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedProfilesData.swift; sourceTree = "<group>"; };
 		A7B5E7752A14FD9B0062F7AA /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		A7B5E7772A150AF10062F7AA /* InfoCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCard.swift; sourceTree = "<group>"; };
 		A7B5E7792A17EE8F0062F7AA /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
@@ -133,6 +137,7 @@
 				A7B0B11A2A19EE17004321E7 /* Skill.swift */,
 				A7B0B11C2A19EE29004321E7 /* Company.swift */,
 				A7B0B11E2A19EE54004321E7 /* Employee.swift */,
+				A7B0B1252A1A9242004321E7 /* SavedProfilesData.swift */,
 			);
 			path = DataModels;
 			sourceTree = "<group>";
@@ -147,6 +152,7 @@
 				A7B5E7772A150AF10062F7AA /* InfoCard.swift */,
 				A7DA1B102A0BD1D80010FACA /* ResumeGrid.swift */,
 				A761D5472A0BDF6F005F2301 /* ResumeCard.swift */,
+				A7B0B1232A1A416C004321E7 /* SkillCategory.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -347,6 +353,7 @@
 				A7B0B1102A19ED3F004321E7 /* CV.swift in Sources */,
 				A7B0B11F2A19EE54004321E7 /* Employee.swift in Sources */,
 				A7B5E77C2A17EECA0062F7AA /* User.swift in Sources */,
+				A7B0B1242A1A416C004321E7 /* SkillCategory.swift in Sources */,
 				A7B0B1162A19EDD0004321E7 /* Education.swift in Sources */,
 				A7B0B1182A19EDE7004321E7 /* Experience.swift in Sources */,
 				A7B0B1122A19ED5F004321E7 /* SavedCV.swift in Sources */,
@@ -359,6 +366,7 @@
 				A7B0B10D2A1973F6004321E7 /* APIResponse.swift in Sources */,
 				A7DA1B132A0BD5B00010FACA /* ResumePreview.swift in Sources */,
 				A7B0B1072A183474004321E7 /* NavigationBar.swift in Sources */,
+				A7B0B1262A1A9242004321E7 /* SavedProfilesData.swift in Sources */,
 				A761D54C2A12734F005F2301 /* Section.swift in Sources */,
 				A761D5502A129C6A005F2301 /* CompanyPreview.swift in Sources */,
 				A7DA1B112A0BD1D80010FACA /* ResumeGrid.swift in Sources */,

@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum EmployeeType: Codable {
+enum EmployeeType: Codable, Hashable{
     case Recruiter
     case FullTime
     case PartTime

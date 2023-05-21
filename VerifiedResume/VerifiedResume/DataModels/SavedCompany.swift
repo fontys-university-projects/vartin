@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SavedCompany: Identifiable, Codable {
+struct SavedCompany: Identifiable, Hashable, Codable {
     var id: String
     var companyId: String
     var userId: String?

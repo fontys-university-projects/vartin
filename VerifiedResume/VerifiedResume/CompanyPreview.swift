@@ -18,7 +18,7 @@ struct CompanyData: Identifiable{
 
 
 struct CompanyPreview: View {
-    @ObservableObject var network: Network
+    @ObservedObject var network: Network
     
     @State private var companyData = [CompanyData(website: "Link Here!", industry: "Software Development", companySize: "500+ employees", headquaters: "Eindhoven, Netherlands")]
     

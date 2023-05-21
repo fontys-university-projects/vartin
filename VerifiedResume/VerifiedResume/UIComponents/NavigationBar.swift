@@ -19,21 +19,22 @@ struct NavigationBar: View {
 //                        }
 //                        .tag(0)
                     
-                    SavedProfiles()
-                        .tabItem {
-                            Image(systemName: "tray.full.fill")
-
-                            Text("Saved")
-                        }
-                        .tag(1)
-                    
-                    CompanyPreview()
-                        .tabItem {
-                            Image(systemName: "gear")
-                            Text("Settings")
-                        }
-                        .tag(2)
-                }
+//                    SavedProfiles()
+//                        .tabItem {
+//                            Image(systemName: "tray.full.fill")
+//
+//                            Text("Saved")
+//                        }
+//                        .tag(1)
+//
+//                    CompanyPreview()
+//                        .tabItem {
+//                            Image(systemName: "gear")
+//                            Text("Settings")
+//                        }
+//                        .tag(2)
+        }
+        .frame(height: 20.0)
                 .accentColor(.blue) // Customize the selected tab color
     }
 }

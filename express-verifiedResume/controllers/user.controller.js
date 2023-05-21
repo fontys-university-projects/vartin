@@ -376,7 +376,7 @@ class userController {
             const body = req.body
             const usr = req.user
             const merge = {...body, ...usr}
-            const data = await user.unsave(merge)
+            const data = await user.unsaved(merge)
             res.status(200).json({
                 status: true,
                 message: "Unsaved CV and/or Company",
@@ -394,14 +394,14 @@ class userController {
             const body = req.body
             const usr = req.user
             const merge = {...body, ...usr}
-            const data = await user.unsave(merge)
+            const data = await user.saved(merge)
             res.status(200).json({
                 status: true,
                 message: "List of all CVs and Companies",
                 data
             })
         } catch (e) {
-            next(createError(e.statusCode, e.message))
+            // next(createError(e.statusCode, e.message))
             console.log(e)
         }
     }

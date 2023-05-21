@@ -11,7 +11,8 @@ struct ResumePreview: View {
     @ObservedObject public var network: Network
     
     private let adaptveColumns = [
-        GridItem(.adaptive(minimum: 150.0))
+//        GridItem(.adaptive(minimum: 150.0))
+        GridItem(.adaptive(minimum: 250))
     ]
     
     var body: some View {
@@ -67,11 +68,7 @@ struct ResumePreview: View {
                     
                     
                     Section(text: "Skills"){
-//                        LazyVGrid(columns: adaptveColumns, spacing: 20) {
-//                            ForEach(userInfo.skills, id: \.self) { skill in
-//                                InfoCard(first: skill., second: <#T##String#>, third: <#T##String#>, forth: <#T##String#>).scaledToFit()
-//                            }
-//                        }
+                        SkillCategory(name: "IT", skills: ["C", "C++", "C#", "Python", "Swift","C", "C++", "C#", "C#", "Python", "Swift"])
                     }
                     .padding(.bottom)
                     
@@ -87,11 +84,11 @@ struct ResumePreview: View {
                     
                     
                     Section(text: "Education & Training"){
-//                        LazyVGrid(columns: adaptveColumns, spacing: 20) {
-//                            ForEach(userInfo.educations, id: \.self) { skill in
-//                                InfoCard(first: skill., second: <#T##String#>, third: <#T##String#>, forth: <#T##String#>).scaledToFit()
-//                            }
-//                        }
+                        LazyVGrid(columns: adaptveColumns, spacing: 20) {
+                            ForEach(userInfo.educations, id: \.self) { education in
+                                InfoCard(first: education.degree, second: education.institution, third: "[\(education.startDate) - \(education.endDate)]", forth: "https://fontys.fhict.nl").scaledToFit()
+                            }
+                        }
                     }
                     .padding(.bottom)
                     

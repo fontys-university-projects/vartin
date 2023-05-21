@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CV: Identifiable, Codable {
+struct CV: Identifiable, Hashable, Codable {
     var id: String
     var firstName: String
     var lastName: String

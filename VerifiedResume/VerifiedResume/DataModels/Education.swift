@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Education: Identifiable, Codable {
+struct Education: Identifiable, Hashable, Codable {
     var id: String
     var institution: String
     var degree: String

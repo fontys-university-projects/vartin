@@ -547,7 +547,7 @@ class authService {
             }
         })
 
-        const savedCompany = await prisma.savedCompany.findMany({
+        const savedCompany = await prisma.savedCompanies.findMany({
             where: {
                 user: {
                     uid: uid
