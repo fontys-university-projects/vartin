@@ -370,16 +370,16 @@ class userController {
         }
     }
 
-    static unsaved = async (req, res, next) => {
+    static remove = async (req, res, next) => {
 
         try {
             const body = req.body
             const usr = req.user
             const merge = {...body, ...usr}
-            const data = await user.unsave(merge)
+            const data = await user.remove(merge)
             res.status(200).json({
                 status: true,
-                message: "Unsaved CV and/or Company",
+                message: "CV and/or Company was removed successfully",
                 data
             })
         } catch (e) {
@@ -394,7 +394,7 @@ class userController {
             const body = req.body
             const usr = req.user
             const merge = {...body, ...usr}
-            const data = await user.unsave(merge)
+            const data = await user.saved(merge)
             res.status(200).json({
                 status: true,
                 message: "List of all CVs and Companies",

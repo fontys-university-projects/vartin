@@ -501,7 +501,7 @@ class authService {
 
     }
         
-    static async unsaved (data) {
+    static async remove (data) {
         const { uid, cvID, companyID } = data
 
         const user = await prisma.user.findUnique({
@@ -544,23 +544,29 @@ class authService {
             where: {
                 user: {
                     uid: uid
-                }
+                },
+            },
+            select: {
+                cv: true
             }
         })
 
-        const savedCompany = await prisma.savedCompany.findMany({
+        const savedCompany = await prisma.savedCompanies.findMany({
             where: {
                 user: {
                     uid: uid
                 }
+            },
+            select: {
+                company: true
             }
         })
 
         if (!savedCV && !savedCompany) throw createError.Unauthorized('User does not have any saved CVs or companies')
 
         const saved = {
-            savedCV: savedCV,
-            savedCompany: savedCompany
+            savedCVs: savedCV,
+            savedCompanies: savedCompany
         }
 
         return saved
