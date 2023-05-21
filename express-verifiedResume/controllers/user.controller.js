@@ -85,6 +85,21 @@ class userController {
         }
     }
 
+    static getCV = async (req, res, next) => {
+                
+                try {
+                    const data = await user.getCV(req.user)
+                    res.status(200).json({
+                        status: true,
+                        message: "CV retrieved",
+                        data
+                    })
+                } catch (e) {
+                    next(createError(e.statusCode, e.message))
+                    console.log(e)
+                }
+    }
+
     static createExperience = async (req, res, next) => {
 
         try {
