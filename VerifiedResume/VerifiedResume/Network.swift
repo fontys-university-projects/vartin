@@ -141,41 +141,4 @@ class Network: ObservableObject {
         dataTask.resume()
     }
 
-
-func getSavedCompanies(){
-    guard let url = URL(string: "\(self.url_root)/user/profile") else { fatalError("Missing URL") }
-    
-    var urlRequest = URLRequest(url: url)
-    
-    let headers = [
-        "Accept": "/",
-        "Authorization": "Bearer eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1MzM1NmU0OGEwNWQyZTNmOGEiLCJpYXQiOjE2ODQ1MzUxMTl9.OVY7n3AIA0qP6gEvVcmo6Ei1gxDkylryypqb5vhFLBJrr_Esy1AR18JGDoeFWh3hkqwyjHv6pgMRv3dj2U6TKQ"
-    ]
-    
-    urlRequest.httpMethod = "GET"
-    urlRequest.allHTTPHeaderFields = headers
-    
-    let dataTask = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
-        if let error = error {
-            print("Request error: ", error)
-            return
-        }
-        
-        guard let response = response as? HTTPURLResponse else { return }
-        if response.statusCode == 200 {
-            guard let data = data else { return }
-            DispatchQueue.main.async {
-                do {
-                    let decodedUserInfoResponse = try JSONDecoder().decode(APIResponse<User>.self, from: data)
-                    self.userInfo = decodedUserInfoResponse.data
-                } catch let error {
-                    print("Error decoding: ", error)
-                }
-            }
-        }
-    }
-    
-    dataTask.resume()
-}
-
 }
