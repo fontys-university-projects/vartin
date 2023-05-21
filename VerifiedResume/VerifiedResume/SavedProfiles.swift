@@ -8,22 +8,28 @@
 import SwiftUI
 
 struct SavedProfiles: View {
+    @ObservedObject public var network: Network
+    
     var body: some View {
         VStack {
             ScrollView(){
                 Section(text: "Saved CVs"){
-                    ResumeGrid()
-                }.padding()
+                    ResumeGrid<CV>(items: network.savedCVs)
+                }
+                .padding()
                 Section(text: "Saved Companies"){
-                    ResumeGrid()
-                }.padding()
+                    ResumeGrid<Company>(items: network.savedCompanies)
+                }
+                .padding()
             }
+        }.onAppear(){
+            network.getSavedProfiles()
         }
     }
 }
 
 struct SavedProfiles_Previews: PreviewProvider {
     static var previews: some View {
-        SavedProfiles()
+        SavedProfiles(network: Network())
     }
 }

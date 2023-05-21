@@ -16,8 +16,6 @@ struct Section<Content: View> : View {
         VStack(alignment: .leading){
             Text(text)
                 .font(.headline)
-                
-                
             Divider()
             content()
         }

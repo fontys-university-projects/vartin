@@ -9,10 +9,12 @@ import SwiftUI
 
 @main
 struct VerifiedResumeApp: App {
+    var network = Network()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
-            
+                .environmentObject(network)
         }
     }
 }

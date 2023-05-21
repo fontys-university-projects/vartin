@@ -8,51 +8,87 @@
 import SwiftUI
 
 struct ResumePreview: View {
+    @ObservedObject public var network: Network
+    
+    private let adaptveColumns = [
+//        GridItem(.adaptive(minimum: 150.0))
+        GridItem(.adaptive(minimum: 250))
+    ]
+    
     var body: some View {
+        
+        let userInfo = network.userInfo
+        
         VStack(){
             ScrollView(){
                 Image("default-cover")
                     .resizable()
                     .clipShape(Rectangle())
                     .frame(height: 250.0, alignment: .top)
-                    
-
-                CircleImage(width: 200.0, height: 200.0)
-                    .offset(y: -150)
-                    .padding(.bottom, -150)
                 
-                Text("Jonh Doe")
+                ZStack(alignment: .center){
+                    CircleImage(width: 200.0, height: 200.0)
+                        .offset(y: -150)
+                        .padding(.bottom, -150)
+                    
+                    HStack(){
+                        let link = URL(string: "https://www.linkedin.com/in/valentin-stoyanov-9521ab193/")!
+                        Spacer()
+                        ShareLink(item: link){
+                            VStack(alignment: .center){
+                                Image(systemName: "link").resizable().frame(width: 22.0, height: 22.0)
+                                Text("share")
+                                    .font(.caption)
+                                    .fontWeight(.light)
+                                    .multilineTextAlignment(.center)
+                                    .padding(.top, -5.0)
+                            }
+                        }
+                        .padding(.trailing)
+                        .accentColor(/*@START_MENU_TOKEN@*/Color(red: 0.169, green: 0.343, blue: 0.694)/*@END_MENU_TOKEN@*/)
+                    }
+                }
+                
+                let fullname = userInfo.cv.firstName + " " + userInfo.cv.lastName
+                Text(fullname)
                     .font(.title)
                 Text("Developer")
                     .foregroundColor(Color.gray)
-                    
                 
                 VStack(){
                     Section(text: "About me"){
-                        Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+                        Text(userInfo.cv.about)
                             .font(/*@START_MENU_TOKEN@*/.body/*@END_MENU_TOKEN@*/)
                             .fontWeight(.light)
                             .foregroundColor(Color.gray)
                             .multilineTextAlignment(.leading)
-                            
+                        
                     }
                     .padding(.bottom)
                     
                     
                     Section(text: "Skills"){
-                        
+                        SkillCategory(name: "IT", skills: ["C", "C++", "C#", "Python", "Swift","C", "C++", "C#", "C#", "Python", "Swift"])
                     }
                     .padding(.bottom)
                     
                     
                     Section(text: "Experience"){
-                        
+                        LazyVGrid(columns: adaptveColumns, spacing: 20) {
+                            ForEach(userInfo.experiences, id: \.self) { exp in
+                                InfoCard(first: exp.companyName, second: exp.position, third: "[\(exp.startDate) - \(exp.endDate)]", forth: "https://dhr.is").scaledToFit()
+                            }
+                        }
                     }
                     .padding(.bottom)
                     
                     
                     Section(text: "Education & Training"){
-                        
+                        LazyVGrid(columns: adaptveColumns, spacing: 20) {
+                            ForEach(userInfo.educations, id: \.self) { education in
+                                InfoCard(first: education.degree, second: education.institution, third: "[\(education.startDate) - \(education.endDate)]", forth: "https://fontys.fhict.nl").scaledToFit()
+                            }
+                        }
                     }
                     .padding(.bottom)
                     
@@ -61,18 +97,23 @@ struct ResumePreview: View {
                         
                     }
                     .padding(.bottom)
-
-                        
+                    
+                    
                 }.padding()
                 
                 Spacer()
             }
-        }.ignoresSafeArea()
+        }
+        .ignoresSafeArea()
+        .onAppear(){
+            network.getUserInfo(accessToken: "")
+            
+        }
     }
 }
 
 struct ResumePreview_Previews: PreviewProvider {
     static var previews: some View {
-        ResumePreview()
+        ResumePreview(network: Network())
     }
 }

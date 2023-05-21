@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct ResumeGrid: View {
-    let items = (1...4)
+struct ResumeGrid<T: Hashable>: View {
+    let items: [T]
     
     private let adaptveColumns = [
         GridItem(.adaptive(minimum: 150.0))
@@ -25,6 +25,6 @@ struct ResumeGrid: View {
 
 struct ResumeGrid_Previews: PreviewProvider {
     static var previews: some View {
-        ResumeGrid()
+        ResumeGrid<CV>(items: [])
     }
 }

@@ -18,6 +18,7 @@ struct CompanyData: Identifiable{
 
 
 struct CompanyPreview: View {
+    @ObservedObject var network: Network
     
     @State private var companyData = [CompanyData(website: "Link Here!", industry: "Software Development", companySize: "500+ employees", headquaters: "Eindhoven, Netherlands")]
     
@@ -33,10 +34,28 @@ struct CompanyPreview: View {
                     .clipShape(Rectangle())
                     .frame(height: 250.0, alignment: .top)
                 
-                
-                CircleImage(width: 200.0, height: 200.0)
-                    .offset(y: -150)
-                    .padding(.bottom, -150)
+                ZStack(alignment: .center){
+                    CircleImage(width: 200.0, height: 200.0)
+                        .offset(y: -150)
+                        .padding(.bottom, -150)
+                    
+                    HStack(){
+                        let link = URL(string: "https://unsplash.com/photos/nfqZ9Z50zvc")!
+                        Spacer()
+                        ShareLink(item: link){
+                        VStack(alignment: .center){
+                                Image(systemName: "link").resizable().frame(width: 22.0, height: 22.0)
+                                Text("share")
+                                    .font(.caption)
+                                    .fontWeight(.light)
+                                    .multilineTextAlignment(.center)
+                                    .padding(.top, -5.0)
+                            }
+                        }
+                        .padding(.trailing)
+                        .accentColor(/*@START_MENU_TOKEN@*/Color(red: 0.169, green: 0.343, blue: 0.694)/*@END_MENU_TOKEN@*/)
+                    }
+                }
                 
                 //TODO: Add icon for verified companies
                 Text("Company BV")
@@ -169,7 +188,7 @@ struct CompanyPreview: View {
                         LazyVGrid(columns: availableJobsAdaptveColumns, alignment: .center, spacing: 10) {
                             ForEach(items, id: \.self) { item in
                                 
-                                InfoCard()
+                                InfoCard(first: " ", second: " ", third: "" , forth: "")
                             }
                         }
                         
@@ -187,6 +206,6 @@ struct CompanyPreview: View {
 
 struct CompanyPreview_Previews: PreviewProvider {
     static var previews: some View {
-        CompanyPreview()
+        CompanyPreview(network: Network())
     }
 }

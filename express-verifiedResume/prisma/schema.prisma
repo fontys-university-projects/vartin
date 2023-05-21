@@ -33,9 +33,9 @@ model CV {
   firstName   String
   lastName    String
   about       String?
-  email       Json
-  phone       Json?
-  website     Json?
+  email       String?
+  phone       String?
+  website     String?
   address     String?
   langauges   Language[]
   educations  Education[]

@@ -12,11 +12,24 @@
 		A761D54C2A12734F005F2301 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = A761D54B2A12734F005F2301 /* Section.swift */; };
 		A761D54E2A127CEF005F2301 /* SavedProfiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = A761D54D2A127CEF005F2301 /* SavedProfiles.swift */; };
 		A761D5502A129C6A005F2301 /* CompanyPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A761D54F2A129C6A005F2301 /* CompanyPreview.swift */; };
+		A7B0B1072A183474004321E7 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B0B1062A183474004321E7 /* NavigationBar.swift */; };
+		A7B0B1092A1935DA004321E7 /* AuthenticationToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B0B1082A1935DA004321E7 /* AuthenticationToken.swift */; };
+		A7B0B10D2A1973F6004321E7 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B0B10C2A1973F6004321E7 /* APIResponse.swift */; };
+		A7B0B1102A19ED3F004321E7 /* CV.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B0B10F2A19ED3F004321E7 /* CV.swift */; };
+		A7B0B1122A19ED5F004321E7 /* SavedCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B0B1112A19ED5F004321E7 /* SavedCV.swift */; };
+		A7B0B1142A19EDAD004321E7 /* SavedCompany.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B0B1132A19EDAD004321E7 /* SavedCompany.swift */; };
+		A7B0B1162A19EDD0004321E7 /* Education.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B0B1152A19EDD0004321E7 /* Education.swift */; };
+		A7B0B1182A19EDE7004321E7 /* Experience.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B0B1172A19EDE7004321E7 /* Experience.swift */; };
+		A7B0B11B2A19EE17004321E7 /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B0B11A2A19EE17004321E7 /* Skill.swift */; };
+		A7B0B11D2A19EE29004321E7 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B0B11C2A19EE29004321E7 /* Company.swift */; };
+		A7B0B11F2A19EE54004321E7 /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B0B11E2A19EE54004321E7 /* Employee.swift */; };
+		A7B0B1212A19EE7D004321E7 /* EmployeeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B0B1202A19EE7D004321E7 /* EmployeeType.swift */; };
+		A7B0B1242A1A416C004321E7 /* SkillCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B0B1232A1A416C004321E7 /* SkillCategory.swift */; };
+		A7B0B1262A1A9242004321E7 /* SavedProfilesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B0B1252A1A9242004321E7 /* SavedProfilesData.swift */; };
 		A7B5E7762A14FD9C0062F7AA /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B5E7752A14FD9B0062F7AA /* MapView.swift */; };
 		A7B5E7782A150AF10062F7AA /* InfoCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B5E7772A150AF10062F7AA /* InfoCard.swift */; };
 		A7B5E77A2A17EE900062F7AA /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B5E7792A17EE8F0062F7AA /* Network.swift */; };
 		A7B5E77C2A17EECA0062F7AA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B5E77B2A17EECA0062F7AA /* User.swift */; };
-		A7B5E77E2A17EFD60062F7AA /* CV.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B5E77D2A17EFD60062F7AA /* CV.swift */; };
 		A7DA1AE62A0BADD70010FACA /* VerifiedResumeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DA1AE52A0BADD70010FACA /* VerifiedResumeApp.swift */; };
 		A7DA1AE82A0BADD70010FACA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DA1AE72A0BADD70010FACA /* ContentView.swift */; };
 		A7DA1AEA2A0BADD80010FACA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7DA1AE92A0BADD80010FACA /* Assets.xcassets */; };
@@ -51,11 +64,24 @@
 		A761D54B2A12734F005F2301 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		A761D54D2A127CEF005F2301 /* SavedProfiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedProfiles.swift; sourceTree = "<group>"; };
 		A761D54F2A129C6A005F2301 /* CompanyPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyPreview.swift; sourceTree = "<group>"; };
+		A7B0B1062A183474004321E7 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
+		A7B0B1082A1935DA004321E7 /* AuthenticationToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationToken.swift; sourceTree = "<group>"; };
+		A7B0B10C2A1973F6004321E7 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
+		A7B0B10F2A19ED3F004321E7 /* CV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CV.swift; sourceTree = "<group>"; };
+		A7B0B1112A19ED5F004321E7 /* SavedCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCV.swift; sourceTree = "<group>"; };
+		A7B0B1132A19EDAD004321E7 /* SavedCompany.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCompany.swift; sourceTree = "<group>"; };
+		A7B0B1152A19EDD0004321E7 /* Education.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Education.swift; sourceTree = "<group>"; };
+		A7B0B1172A19EDE7004321E7 /* Experience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Experience.swift; sourceTree = "<group>"; };
+		A7B0B11A2A19EE17004321E7 /* Skill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
+		A7B0B11C2A19EE29004321E7 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
+		A7B0B11E2A19EE54004321E7 /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
+		A7B0B1202A19EE7D004321E7 /* EmployeeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeType.swift; sourceTree = "<group>"; };
+		A7B0B1232A1A416C004321E7 /* SkillCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillCategory.swift; sourceTree = "<group>"; };
+		A7B0B1252A1A9242004321E7 /* SavedProfilesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedProfilesData.swift; sourceTree = "<group>"; };
 		A7B5E7752A14FD9B0062F7AA /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		A7B5E7772A150AF10062F7AA /* InfoCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCard.swift; sourceTree = "<group>"; };
 		A7B5E7792A17EE8F0062F7AA /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		A7B5E77B2A17EECA0062F7AA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		A7B5E77D2A17EFD60062F7AA /* CV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CV.swift; sourceTree = "<group>"; };
 		A7DA1AE22A0BADD70010FACA /* VerifiedResume.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VerifiedResume.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7DA1AE52A0BADD70010FACA /* VerifiedResumeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiedResumeApp.swift; sourceTree = "<group>"; };
 		A7DA1AE72A0BADD70010FACA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -96,6 +122,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A7B0B10E2A19751F004321E7 /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+				A7B0B10C2A1973F6004321E7 /* APIResponse.swift */,
+				A7B0B1082A1935DA004321E7 /* AuthenticationToken.swift */,
+				A7B5E77B2A17EECA0062F7AA /* User.swift */,
+				A7B0B10F2A19ED3F004321E7 /* CV.swift */,
+				A7B0B1202A19EE7D004321E7 /* EmployeeType.swift */,
+				A7B0B1112A19ED5F004321E7 /* SavedCV.swift */,
+				A7B0B1132A19EDAD004321E7 /* SavedCompany.swift */,
+				A7B0B1152A19EDD0004321E7 /* Education.swift */,
+				A7B0B1172A19EDE7004321E7 /* Experience.swift */,
+				A7B0B11A2A19EE17004321E7 /* Skill.swift */,
+				A7B0B11C2A19EE29004321E7 /* Company.swift */,
+				A7B0B11E2A19EE54004321E7 /* Employee.swift */,
+				A7B0B1252A1A9242004321E7 /* SavedProfilesData.swift */,
+			);
+			path = DataModels;
+			sourceTree = "<group>";
+		};
+		A7B0B1222A1A12B3004321E7 /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				A7B0B1062A183474004321E7 /* NavigationBar.swift */,
+				A7B5E7752A14FD9B0062F7AA /* MapView.swift */,
+				A761D5492A1240E4005F2301 /* CircleImage.swift */,
+				A761D54B2A12734F005F2301 /* Section.swift */,
+				A7B5E7772A150AF10062F7AA /* InfoCard.swift */,
+				A7DA1B102A0BD1D80010FACA /* ResumeGrid.swift */,
+				A761D5472A0BDF6F005F2301 /* ResumeCard.swift */,
+				A7B0B1232A1A416C004321E7 /* SkillCategory.swift */,
+			);
+			path = UIComponents;
+			sourceTree = "<group>";
+		};
 		A7DA1AD92A0BADD70010FACA = {
 			isa = PBXGroup;
 			children = (
@@ -119,20 +180,14 @@
 		A7DA1AE42A0BADD70010FACA /* VerifiedResume */ = {
 			isa = PBXGroup;
 			children = (
-				A7B5E7772A150AF10062F7AA /* InfoCard.swift */,
+				A7B0B10E2A19751F004321E7 /* DataModels */,
+				A7B0B1222A1A12B3004321E7 /* UIComponents */,
+				A7B5E7792A17EE8F0062F7AA /* Network.swift */,
 				A7DA1AE52A0BADD70010FACA /* VerifiedResumeApp.swift */,
 				A7DA1AE72A0BADD70010FACA /* ContentView.swift */,
 				A761D54F2A129C6A005F2301 /* CompanyPreview.swift */,
 				A7DA1B122A0BD5B00010FACA /* ResumePreview.swift */,
-				A761D54B2A12734F005F2301 /* Section.swift */,
-				A7B5E7792A17EE8F0062F7AA /* Network.swift */,
-				A7B5E77B2A17EECA0062F7AA /* User.swift */,
-				A761D5492A1240E4005F2301 /* CircleImage.swift */,
-				A7B5E77D2A17EFD60062F7AA /* CV.swift */,
-				A7B5E7752A14FD9B0062F7AA /* MapView.swift */,
 				A761D54D2A127CEF005F2301 /* SavedProfiles.swift */,
-				A7DA1B102A0BD1D80010FACA /* ResumeGrid.swift */,
-				A761D5472A0BDF6F005F2301 /* ResumeCard.swift */,
 				A7DA1AE92A0BADD80010FACA /* Assets.xcassets */,
 				A7DA1AEB2A0BADD80010FACA /* VerifiedResume.entitlements */,
 				A7DA1AEC2A0BADD80010FACA /* Preview Content */,
@@ -295,20 +350,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7B0B1102A19ED3F004321E7 /* CV.swift in Sources */,
+				A7B0B11F2A19EE54004321E7 /* Employee.swift in Sources */,
 				A7B5E77C2A17EECA0062F7AA /* User.swift in Sources */,
+				A7B0B1242A1A416C004321E7 /* SkillCategory.swift in Sources */,
+				A7B0B1162A19EDD0004321E7 /* Education.swift in Sources */,
+				A7B0B1182A19EDE7004321E7 /* Experience.swift in Sources */,
+				A7B0B1122A19ED5F004321E7 /* SavedCV.swift in Sources */,
 				A7DA1AE82A0BADD70010FACA /* ContentView.swift in Sources */,
 				A761D5482A0BDF6F005F2301 /* ResumeCard.swift in Sources */,
 				A7B5E77A2A17EE900062F7AA /* Network.swift in Sources */,
+				A7B0B1092A1935DA004321E7 /* AuthenticationToken.swift in Sources */,
+				A7B0B11B2A19EE17004321E7 /* Skill.swift in Sources */,
+				A7B0B1142A19EDAD004321E7 /* SavedCompany.swift in Sources */,
+				A7B0B10D2A1973F6004321E7 /* APIResponse.swift in Sources */,
 				A7DA1B132A0BD5B00010FACA /* ResumePreview.swift in Sources */,
+				A7B0B1072A183474004321E7 /* NavigationBar.swift in Sources */,
+				A7B0B1262A1A9242004321E7 /* SavedProfilesData.swift in Sources */,
 				A761D54C2A12734F005F2301 /* Section.swift in Sources */,
 				A761D5502A129C6A005F2301 /* CompanyPreview.swift in Sources */,
 				A7DA1B112A0BD1D80010FACA /* ResumeGrid.swift in Sources */,
-				A7B5E77E2A17EFD60062F7AA /* CV.swift in Sources */,
 				A7B5E7782A150AF10062F7AA /* InfoCard.swift in Sources */,
+				A7B0B11D2A19EE29004321E7 /* Company.swift in Sources */,
 				A761D54E2A127CEF005F2301 /* SavedProfiles.swift in Sources */,
 				A7B5E7762A14FD9C0062F7AA /* MapView.swift in Sources */,
 				A7DA1AE62A0BADD70010FACA /* VerifiedResumeApp.swift in Sources */,
 				A761D54A2A1240E4005F2301 /* CircleImage.swift in Sources */,
+				A7B0B1212A19EE7D004321E7 /* EmployeeType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
