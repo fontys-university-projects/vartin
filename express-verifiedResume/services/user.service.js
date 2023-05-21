@@ -181,6 +181,7 @@ class authService {
                 phone: true,
                 website: true,
                 address: true,
+                languages: true,
                 educations: true,
                 experiences: true,
                 skills: true
