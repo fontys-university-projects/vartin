@@ -7,6 +7,7 @@ const jwt = require('../utils/jwt')
 const validator = require('../utils/validation')
 
 const createError = require('http-errors')
+const { use } = require('../routes/user')
 
 const saltValue = parseInt(process.env.SALT_VALUE)
 
@@ -100,14 +101,14 @@ class authService {
         if (!user) throw createError.NotFound('User not found')
         return user
     }
-    static async createCv(data) { 
+    static async createCv(data) {
         const { uid, firstName, lastName, about, email, phone, website, address } = data
         const user = await prisma.user.findUnique({
             where: {
                 uid
             }
         })
-        
+
         if (user.cv) throw createError.Unauthorized('User already has a CV')
         if (!firstName && !lastName && !about && !email) {
             throw createError.Unauthorized('firstName, lastName, about and email are required fields')
@@ -142,7 +143,7 @@ class authService {
         })
         if (!user.cv) throw createError.Unauthorized('User does not have a CV')
 
-        const cv = await prisma.cv.update({ 
+        const cv = await prisma.cv.update({
             where: {
                 id: user.cv.id
             },
@@ -160,7 +161,7 @@ class authService {
         return cv
     }
 
-    static async getCv(data) { 
+    static async getCv(data) {
         const { uid } = data
         const user = await prisma.user.findUnique({
             where: {
@@ -203,7 +204,7 @@ class authService {
             }
         })
         if (!institutionExists) throw createError.Unauthorized('This institution does not exist or is not registered')
-            
+
 
         validator.verifyDate(startDate)
         if (endDate != null) {
@@ -224,7 +225,7 @@ class authService {
                 endDate: endDate != null ? endDate : undefined
             }
         })
-        
+
         return education
     }
 
@@ -260,7 +261,7 @@ class authService {
         return cv
     }
 
-    static async createExperience(data) { 
+    static async createExperience(data) {
         const { uid, company, position, startDate, endDate } = data
         if (!company && !position && !startDate) {
             throw createError.Unauthorized('company, position, startDate are required fields')
@@ -289,7 +290,7 @@ class authService {
         return experience
     }
 
-    static async addExperience(data) { 
+    static async addExperience(data) {
         const { uid, experienceID } = data
 
         const user = await prisma.user.findUnique({
@@ -439,7 +440,7 @@ class authService {
         return cv
     }
 
-    static async save (data) {
+    static async save(data) {
         const { uid, cvID, companyID } = data
 
         const user = await prisma.user.findUnique({
@@ -500,8 +501,8 @@ class authService {
         }
 
     }
-        
-    static async remove (data) {
+
+    static async remove(data) {
         const { uid, cvID, companyID } = data
 
         const user = await prisma.user.findUnique({
@@ -520,13 +521,13 @@ class authService {
             where: {
                 id: companyID
             }
-         })
+        })
 
-        if(!cv) throw createError.Unauthorized('This CV ID does not exist')
+        if (!cv) throw createError.Unauthorized('This CV ID does not exist')
 
-        if(!company) throw createError.Unauthorized('This company ID does not exist')
+        if (!company) throw createError.Unauthorized('This company ID does not exist')
 
-        if(cv) {
+        if (cv) {
             const unsavedCV = await prisma.savedCV.delete({
                 where: {
                     id: cvID
@@ -535,7 +536,7 @@ class authService {
             return unsavedCV
         }
     }
-    
+
     static async saved(data) {
         const { uid } = data
 
@@ -547,7 +548,12 @@ class authService {
                 },
             },
             select: {
-                cv: true
+                cv: true,
+                user: {
+                    select: {
+                        avatar: true
+                    }
+                }
             }
         })
 
@@ -558,7 +564,12 @@ class authService {
                 }
             },
             select: {
-                company: true
+                company: true,
+                user: {
+                    select: {
+                        avatar: true
+                    }
+                }
             }
         })
 
