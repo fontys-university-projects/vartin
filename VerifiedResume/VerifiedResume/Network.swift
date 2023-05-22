@@ -14,8 +14,8 @@ class Network: ObservableObject {
     
     @Published var userInfo: User = User(uid: "", email: "", password: "", avatar: "", cv: CV(id: "", firstName: "", lastName: "", about: "", userId: ""), savedCVs: [], savedCompanies: [], educations: [], experiences: [], skills: [], company: [], employee: [])
     
-    @Published var savedCVs: [CV] = []
-    @Published var savedCompanies: [Company] = []
+    @Published var savedCVs: [SubCV] = []
+    @Published var savedCompanies: [SubCompany] = []
     
     private let url_root = "http://10.147.17.218:5555"
     
@@ -122,15 +122,14 @@ class Network: ObservableObject {
             }
             
             guard let response = response as? HTTPURLResponse else { return }
-            print(response)
             if response.statusCode == 200 {
                 guard let data = data else { return }
                 DispatchQueue.main.async {
                     do {
                         let decodedProfilesResponse = try JSONDecoder().decode(APIResponse<SavedProfile>.self, from: data)
-                        print(decodedProfilesResponse)
                         self.savedCVs = decodedProfilesResponse.data.savedCVs
                         self.savedCompanies = decodedProfilesResponse.data.savedCompanies
+                        
                     } catch let error {
                         print("Error decoding: ", error)
                     }

@@ -35,7 +35,7 @@ struct CompanyPreview: View {
                     .frame(height: 250.0, alignment: .top)
                 
                 ZStack(alignment: .center){
-                    CircleImage(width: 200.0, height: 200.0)
+                    CircleImage(avatar_url: network.userInfo.avatar, width: 200.0, height: 200.0)
                         .offset(y: -150)
                         .padding(.bottom, -150)
                     
@@ -176,7 +176,6 @@ struct CompanyPreview: View {
                     
                     
                     Section(text: "Locations"){
-                        
                         MapView().frame(height: 200)
                     }
                     .padding(.bottom)
@@ -188,7 +187,7 @@ struct CompanyPreview: View {
                         LazyVGrid(columns: availableJobsAdaptveColumns, alignment: .center, spacing: 10) {
                             ForEach(items, id: \.self) { item in
                                 
-                                InfoCard(first: " ", second: " ", third: "" , forth: "")
+                                InfoCard(first: "Devoloper", second: "Company BV", third: "Salary: $1200" , forth: "https//example.com")
                             }
                         }
                         

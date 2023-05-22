@@ -16,13 +16,15 @@ struct SkillCategory: View {
             Text(name)
                 .font(.headline)
                 .padding(.vertical, 8)
-            LazyVGrid(columns: [], spacing: 10.0) {
+            LazyHGrid(rows: [GridItem(.flexible())], spacing: 10.0) {
                 ForEach(skills, id: \.self) { skill in
-                    Text(skill)
-                        .padding(.horizontal)
+                    ZStack{
+                        Text(skill)
+                    }.padding(.horizontal)
                         .background(Color.white)
                         .clipShape(RoundedRectangle(cornerRadius: 13.0))
                         .shadow(radius: 8)
+                    
                 }
             }
             .padding(.horizontal, 8)

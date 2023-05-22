@@ -10,6 +10,7 @@ import SwiftUI
 struct ResumeCard: View {
     let name: String
     let positon: String
+    let avatar_url: String
     
     var body: some View {
         ZStack(){
@@ -18,7 +19,7 @@ struct ResumeCard: View {
                     .resizable()
                     .clipShape(Rectangle())
                     .frame(height: 100.0)
-                CircleImage(width: 100.0, height: 100.0)
+                CircleImage(avatar_url: avatar_url, width: 100.0, height: 100.0)
                     .offset(y: -50)
                     .padding(.bottom, -50)
                 cardText
@@ -43,6 +44,7 @@ struct ResumeCard: View {
 struct ResumeCard_Previews: PreviewProvider {
     static var previews: some View {
         ResumeCard(name: "Jonh Doe",
-                   positon: "Accountant")
+                   positon: "Accountant",
+                   avatar_url: "")
     }
 }

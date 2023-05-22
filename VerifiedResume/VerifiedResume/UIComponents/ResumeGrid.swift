@@ -17,7 +17,17 @@ struct ResumeGrid<T: Hashable>: View {
     var body: some View {
         LazyVGrid(columns: adaptveColumns, spacing: 20) {
             ForEach(items, id: \.self) { item in
-                ResumeCard(name: "John Doe", positon: "Developer").scaledToFit()
+                if item is SubCV{
+                    let subcv = item as! SubCV
+                    let cv = subcv.cv
+                    ResumeCard(name: "\(cv.firstName) \(cv.lastName)", positon: "Developer", avatar_url: subcv.user.avatar).scaledToFit()
+                    
+                }
+                else if item is SubCompany{
+                    let subcompany = item as! SubCompany
+                    let company = subcompany.company
+                    ResumeCard(name: company.name, positon: company.industry ?? "", avatar_url: company.logo ?? "").scaledToFit()
+                }
             }
         }
     }

@@ -13,14 +13,14 @@ struct ContentView: View {
     
     var body: some View {
         TabView(selection: $selectedTab) {
-            ResumePreview(network: network)
+            ResumePreview(network: network).padding(.bottom)
                 .tabItem {
                     Image(systemName: "person")
                     Text("Profile")
                 }
                 .tag(0)
             
-            SavedProfiles(network: network)
+            SavedProfiles(network: network).padding(.bottom)
                 .tabItem {
                     Image(systemName: "tray.full.fill")
                     
@@ -28,7 +28,7 @@ struct ContentView: View {
                 }
                 .tag(1)
             
-            CompanyPreview(network: network)
+            CompanyPreview(network: network).padding(.bottom)
                 .tabItem {
                     Image(systemName: "gear")
                     Text("Settings")

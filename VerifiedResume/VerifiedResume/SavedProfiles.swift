@@ -14,11 +14,11 @@ struct SavedProfiles: View {
         VStack {
             ScrollView(){
                 Section(text: "Saved CVs"){
-                    ResumeGrid<CV>(items: network.savedCVs)
+                    ResumeGrid<SubCV>(items: network.savedCVs)
                 }
                 .padding()
                 Section(text: "Saved Companies"){
-                    ResumeGrid<Company>(items: network.savedCompanies)
+                    ResumeGrid<SubCompany>(items: network.savedCompanies)
                 }
                 .padding()
             }

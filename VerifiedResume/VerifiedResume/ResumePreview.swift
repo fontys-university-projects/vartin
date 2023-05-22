@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct ResumePreview: View {
     @ObservedObject public var network: Network
     
     private let adaptveColumns = [
-//        GridItem(.adaptive(minimum: 150.0))
+        //        GridItem(.adaptive(minimum: 150.0))
         GridItem(.adaptive(minimum: 250))
     ]
     
@@ -27,13 +28,28 @@ struct ResumePreview: View {
                     .frame(height: 250.0, alignment: .top)
                 
                 ZStack(alignment: .center){
-                    CircleImage(width: 200.0, height: 200.0)
+                    CircleImage(avatar_url: userInfo.avatar, width: 200.0, height: 200.0)
                         .offset(y: -150)
                         .padding(.bottom, -150)
                     
                     HStack(){
                         let link = URL(string: "https://www.linkedin.com/in/valentin-stoyanov-9521ab193/")!
+                        let customItem = Activity(title: "Tap me!", image: nil) { sharedItems in
+                            guard let sharedStrings = sharedItems as? [String] else { return }
+                            
+                            for string in sharedStrings {
+                                print("Here's the string: \(string)")
+                            }
+                        }
+                        
+//                        let items = ["Hello, custom activity!"]
+//                        let ac = UIActivityViewController(activityItems: items, applicationActivities: [customItem])
+//                        ac.excludedActivityTypes = [.postToFacebook]
+////                        present(ac, animated: true)
+                        
+                        
                         Spacer()
+                        
                         ShareLink(item: link){
                             VStack(alignment: .center){
                                 Image(systemName: "link").resizable().frame(width: 22.0, height: 22.0)
@@ -59,23 +75,17 @@ struct ResumePreview: View {
                     Section(text: "About me"){
                         Text(userInfo.cv.about ?? ""
                         )
-                            .font(/*@START_MENU_TOKEN@*/.body/*@END_MENU_TOKEN@*/)
-                            .fontWeight(.light)
-                            .foregroundColor(Color.gray)
-                            .multilineTextAlignment(.leading)
+                        .font(/*@START_MENU_TOKEN@*/.body/*@END_MENU_TOKEN@*/)
+                        .fontWeight(.light)
+                        .foregroundColor(Color.gray)
+                        .multilineTextAlignment(.leading)
                         
                     }
                     .padding(.bottom)
                     
                     
-                    Section(text: "Skills"){
-                        SkillCategory(name: "IT", skills: ["C", "C++", "C#", "Python", "Swift","C", "C++", "C#", "C#", "Python", "Swift"])
-                    }
-                    .padding(.bottom)
-                    
-                    
                     Section(text: "Experience"){
-                        LazyVGrid(columns: adaptveColumns, spacing: 20) {
+                        LazyVGrid(columns: adaptveColumns, alignment: .center, spacing: 10) {
                             ForEach(userInfo.experiences, id: \.self) { exp in
                                 InfoCard(first: exp.companyName, second: exp.position, third: "[\(exp.startDate) - \(exp.endDate)]", forth: "https://dhr.is").scaledToFit()
                             }
@@ -85,7 +95,7 @@ struct ResumePreview: View {
                     
                     
                     Section(text: "Education & Training"){
-                        LazyVGrid(columns: adaptveColumns, spacing: 20) {
+                        LazyVGrid(columns: adaptveColumns, alignment: .center, spacing: 10) {
                             ForEach(userInfo.educations, id: \.self) { education in
                                 InfoCard(first: education.degree, second: education.institution, third: "[\(education.startDate) - \(education.endDate)]", forth: "https://fontys.fhict.nl").scaledToFit()
                             }
@@ -93,12 +103,18 @@ struct ResumePreview: View {
                     }
                     .padding(.bottom)
                     
-                    
-                    Section(text: "Languages"){
+                    Section(text: "Skills"){
+                        let skillMap = self.getDictOfCategorySkill(skills: userInfo.skills)
+                        //                        for (category, skills) in skillMap{
+                        //                            SkillCategory(name: userInfo.skills.first?.category, skills: userInfo.skills)
+                        //                        }
+                        
+                        ForEach(Array(skillMap), id: \.0) { category, skills in
+                            SkillCategory(name: category, skills: skills)
+                        }
                         
                     }
                     .padding(.bottom)
-                    
                     
                 }.padding()
                 
@@ -111,6 +127,20 @@ struct ResumePreview: View {
             
         }
     }
+    func getDictOfCategorySkill(skills:[Skill]) -> [String: [String]]{
+        var categoryToSkills: [String: [String]] = [:]
+        for skill in skills {
+            if var skillsList = categoryToSkills[skill.category!] {
+                skillsList.append(skill.name)
+                categoryToSkills[skill.category!] = skillsList
+            } else {
+                categoryToSkills[skill.category!] = [skill.name]
+            }
+        }
+        
+        return categoryToSkills
+    }
+    
 }
 
 struct ResumePreview_Previews: PreviewProvider {

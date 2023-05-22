@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct CircleImage: View {
+    let avatar_url: String
     let width: CGFloat
     let height: CGFloat
     
+    
     var body: some View {
-        Image("default-avatar")
-            .resizable()
+        AsyncImage(url: URL(string: avatar_url))
+//            .resizable()
             .frame(width: width, height: height)
             .clipShape(Circle())
             .overlay {
@@ -25,6 +27,6 @@ struct CircleImage: View {
 
 struct CircleImage_Previews: PreviewProvider {
     static var previews: some View {
-        CircleImage(width: 200.0, height: 200.0)
+        CircleImage(avatar_url: "", width: 200.0, height: 200.0)
     }
 }
